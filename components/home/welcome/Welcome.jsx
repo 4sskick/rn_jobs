@@ -11,7 +11,7 @@ import {
 
 import styles from './welcome.style'
 import { useRouter } from 'expo-router'
-import { icons } from '../../../constants'
+import { SIZES, icons } from '../../../constants'
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
 
@@ -69,6 +69,9 @@ const Welcome = () => {
           //to get each element should call 'item'
           //other variable name won't do
           renderItem={({ item }) => <JobItem job={item} />}
+          keyExtractor={item => item}
+          contentContainerStyle={{ columnGap: SIZES.small }}
+          horizontal
         />
       </View>
     </View>
