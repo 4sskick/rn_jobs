@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { API_KEY } from '@env';
+// import { API_KEY } from '@env';
 import axios from "axios";
 //custom hook function 
 //this gonna be a function class which help to fetch data from API
 //endpoint gonna come into as prop
 
-const api = API_KEY;
+const api = '8b41235fd7msh990d47ddbc9fe3bp14d11bjsnef56b21a299d';
 const useFetch = (endpoint, query) => {
 
     // init useState with default value
@@ -58,3 +58,5 @@ const useFetch = (endpoint, query) => {
     //return the object from this class to make it accessible
     return { data, isLoading, error, refetch }
 }
+
+export default useFetch;

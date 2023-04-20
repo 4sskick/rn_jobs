@@ -5,12 +5,22 @@ import styles from './popularjobs.style'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import { useRouter } from 'expo-router'
 import { COLORS, SIZES } from '../../../constants'
+import useFetch from '../../../service/api/useFetch'
 
 const Popularjobs = () => {
 
   const router = useRouter();
-  const isLoading = false;
-  const isError = false;
+
+  //calling object exported from class by passing param of endpoint & query
+  const { data, isLoading, error } = useFetch(
+    'search',
+    {
+      query: ' React native',
+      num_page: 1
+    }
+  );
+
+  console.log(data);
 
   return (
     <View style={styles.container}>
@@ -27,7 +37,7 @@ const Popularjobs = () => {
       <View style={styles.cardsContainer}>
         {/* dynamic block of code */}
         {isLoading ? (<ActivityIndicator size={'large'} colors={COLORS.primary} />)
-          : isError ? (<Text>Something went wrong</Text>)
+          : error ? (<Text>Something went wrong</Text>)
             : <FlatList
               data={[1, 2, 3, 4, 5]}
               // on basic form callback renderitem={()=>()}
