@@ -32,7 +32,7 @@ const Popularjobs = () => {
 
       {/* header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popularjobs</Text>
+        <Text style={styles.headerTitle}>Popular</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show All</Text>
         </TouchableOpacity>

@@ -38,7 +38,9 @@ const Nearbyjobs = () => {
             : (
               data?.map((job) => (
                 <NearbyJobCard
-
+                  itemJob={job}
+                  //unique key attribute of each item
+                  key={`nearby-job-${job?.job_id}`}
                 />
               ))
             )
