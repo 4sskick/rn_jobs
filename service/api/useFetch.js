@@ -5,8 +5,12 @@ import axios from "axios";
 //this gonna be a function class which help to fetch data from API
 //endpoint gonna come into as prop
 
-const api = '8b41235fd7msh990d47ddbc9fe3bp14d11bjsnef56b21a299d';
+// const api = '8b41235fd7msh990d47ddbc9fe3bp14d11bjsnef56b21a299d';
+const api = process.env.API_KEY;
+
 const useFetch = (endpoint, query) => {
+
+    // console.log(api);
 
     // init useState with default value
     const [data, setData] = useState([]);

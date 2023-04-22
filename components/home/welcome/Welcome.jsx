@@ -5,8 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  FlatList,
-  TouchableOpacityBase
+  FlatList
 } from 'react-native'
 
 import styles from './welcome.style'

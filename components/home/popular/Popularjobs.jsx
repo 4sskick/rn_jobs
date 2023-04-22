@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native'
 
 import styles from './popularjobs.style'
@@ -10,6 +10,13 @@ import useFetch from '../../../service/api/useFetch'
 const Popularjobs = () => {
 
   const router = useRouter();
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = (item) => {
+
+    setSelectedJob(item.job_id);
+  };
+
 
   //calling object exported from class by passing param of endpoint & query
   const { data, isLoading, error } = useFetch(
@@ -42,7 +49,10 @@ const Popularjobs = () => {
               //then to get access on each item, then doing destructured (item, index)
               //become renderItem={({item, index})=>()}
               renderItem={({ item }) => (
-                <PopularJobCard item={item} />
+                <PopularJobCard
+                  item={item}
+                  selectedJobs={selectedJob}
+                  handleCardPress={handleCardPress} />
               )}
               keyExtractor={item => item?.job_id}
               contentContainerStyle={{ columnGap: SIZES.medium }}
